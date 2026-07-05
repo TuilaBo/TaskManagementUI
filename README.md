@@ -73,7 +73,8 @@
 - **Router**: React Router 7
 - **HTTP Client**: Axios
 - **Styling**: Custom CSS
-- **Deployment**: Vercel
+- **Deployment**: Vercel (với Edge Function Proxy)
+- **API Proxy**: Vercel Edge Functions (để gọi API không có SSL)
 
 ## Cấu trúc thư mục
 
@@ -111,7 +112,27 @@ npm run build
 Tạo file `.env`:
 
 ```env
-VITE_API_URL=http://160.22.107.121:8081
+VITE_API_URL=/api
+```
+
+> **Lưu ý**: Khi deploy lên Vercel, API proxy sẽ tự động chuyển request đến backend.
+
+## Cấu trúc thư mục
+
+```
+├── api/
+│   └── proxy.ts              # Vercel Edge Function proxy
+├── src/
+│   ├── api/                  # Cấu hình API clients
+│   ├── app/                  # App entry, router
+│   ├── features/
+│   │   ├── auth/            # Đăng ký, đăng nhập, OTP
+│   │   ├── todo/            # Quản lý công việc
+│   │   └── profile/         # Quản lý hồ sơ
+│   ├── layouts/              # Layout components
+│   └── shared/              # Components, hooks, utilities dùng chung
+├── vercel.json               # Cấu hình Vercel
+└── vite.config.ts           # Cấu hình Vite
 ```
 
 ## API Endpoints

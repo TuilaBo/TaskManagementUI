@@ -97,8 +97,7 @@ export function RegisterPage() {
               error={fieldErrors.username}
               iconLeft={<UserIcon size={18} />}
               required
-              minLength={3}
-              maxLength={50}
+              minLength={6}
               autoComplete="username"
             />
 
@@ -112,6 +111,7 @@ export function RegisterPage() {
               error={fieldErrors.fullName}
               iconLeft={<UserCheckIcon size={18} />}
               required
+              minLength={9}
               autoComplete="name"
             />
 
@@ -140,7 +140,7 @@ export function RegisterPage() {
               error={fieldErrors.password}
               iconLeft={<LockIcon size={18} />}
               required
-              minLength={6}
+              minLength={8}
               autoComplete="new-password"
             />
 

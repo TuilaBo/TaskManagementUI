@@ -26,18 +26,22 @@ export function validateRegisterForm(data: RegisterFormData): RegisterFieldError
 
   if (!data.username.trim()) {
     errors.username = 'Username is required'
-  } else if (data.username.length < 3 || data.username.length > 50) {
-    errors.username = 'Username must be between 3 and 50 characters'
+  } else if (data.username.length < 6) {
+    errors.username = 'Username phải có ít nhất 6 ký tự'
   }
 
   if (!data.fullName.trim()) {
-    errors.fullName = 'Full name is required'
+    errors.fullName = 'Họ và tên is required'
+  } else if (data.fullName.trim().length < 9) {
+    errors.fullName = 'Họ và tên phải có ít nhất 9 ký tự'
   }
 
   if (!data.password) {
     errors.password = 'Password is required'
-  } else if (data.password.length < 6) {
-    errors.password = 'Password must be at least 6 characters'
+  } else if (data.password.length < 8) {
+    errors.password = 'Mật khẩu phải có ít nhất 8 ký tự'
+  } else if (!/(?=.*[a-zA-Z])(?=.*\d)/.test(data.password)) {
+    errors.password = 'Mật khẩu phải bao gồm chữ và số'
   }
 
   const emailError = validateEmail(data.email)
