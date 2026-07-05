@@ -12,6 +12,7 @@ function buildQuery(filters?: TaskFilters) {
   const params = new URLSearchParams()
   if (filters?.status) params.set('status', filters.status)
   if (filters?.keyword) params.set('keyword', filters.keyword)
+  if (filters?.assignedToId) params.set('assignedToId', String(filters.assignedToId))
   if (filters?.page !== undefined) params.set('page', String(filters.page))
   if (filters?.size !== undefined) params.set('size', String(filters.size))
   if (filters?.sortBy) params.set('sortBy', filters.sortBy)

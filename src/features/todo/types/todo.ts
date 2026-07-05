@@ -32,6 +32,7 @@ export interface TaskResponse {
 export interface TaskFilters {
   status?: TaskStatus
   keyword?: string
+  assignedToId?: number
   page?: number
   size?: number
   sortBy?: 'createdAt' | 'updatedAt' | 'deadline' | 'title' | 'startDate'

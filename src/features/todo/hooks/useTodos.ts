@@ -48,7 +48,7 @@ export function useTodos(filters?: TaskFilters) {
     } finally {
       setLoading(false)
     }
-  }, [filters?.status, filters?.keyword, filters?.page, filters?.size, filters?.sortBy, filters?.sortDir])
+  }, [filters?.status, filters?.keyword, filters?.assignedToId, filters?.page, filters?.size, filters?.sortBy, filters?.sortDir])
 
   useEffect(() => {
     fetchTodos()

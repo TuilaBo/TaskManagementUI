@@ -867,15 +867,27 @@ a:hover { color: var(--accent-hover); }
 
 /* ─── Filter Bar ─── */
 .filter-bar {
-  display: grid;
-  grid-template-columns: 200px 1fr;
-  gap: 14px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
   margin-bottom: 24px;
-  padding: 18px 20px;
+  padding: 16px 20px;
   background: var(--surface);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-card);
   animation: slide-up 0.4s ease-out 0.1s both;
+  align-items: flex-end;
+}
+
+.filter-bar .field {
+  flex: 1;
+  min-width: 150px;
+  max-width: 200px;
+}
+
+.filter-bar .field:last-child {
+  flex: 2;
+  max-width: 320px;
 }
 
 .filter-bar-label {
@@ -1597,8 +1609,15 @@ a:hover { color: var(--accent-hover); }
   }
 
   .filter-bar {
-    grid-template-columns: 1fr;
+    flex-direction: column;
     padding: 16px;
+  }
+
+  .filter-bar .field,
+  .filter-bar .field:last-child {
+    flex: none;
+    width: 100%;
+    max-width: none;
   }
 
   .page-header {
