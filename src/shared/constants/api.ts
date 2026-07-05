@@ -1,4 +1,4 @@
-export const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://160.22.107.121:8081'
+export const API_BASE_URL = import.meta.env.VITE_API_URL || 'https://techrent.website/api'
 
 export const STORAGE_KEYS = {
   TOKEN: 'token',

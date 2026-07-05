@@ -22,30 +22,30 @@ function buildQuery(filters?: TaskFilters) {
 
 export const todoApi = {
   getAll: (filters?: TaskFilters) =>
-    apiClient.get<ApiResponse<PageResponse<TaskResponse>>>(`/api/tasks${buildQuery(filters)}`),
+    apiClient.get<ApiResponse<PageResponse<TaskResponse>>>(`/tasks${buildQuery(filters)}`),
 
   getById: (id: number) =>
-    apiClient.get<ApiResponse<TaskResponse>>(`/api/tasks/${id}`),
+    apiClient.get<ApiResponse<TaskResponse>>(`/tasks/${id}`),
 
   create: (data: TaskRequest) =>
-    apiClient.post<ApiResponse<TaskResponse>>('/api/tasks', data),
+    apiClient.post<ApiResponse<TaskResponse>>('/tasks', data),
 
   update: (id: number, data: TaskRequest) =>
-    apiClient.put<ApiResponse<TaskResponse>>(`/api/tasks/${id}`, data),
+    apiClient.put<ApiResponse<TaskResponse>>(`/tasks/${id}`, data),
 
   delete: (id: number) =>
-    apiClient.delete<ApiResponse<null>>(`/api/tasks/${id}`),
+    apiClient.delete<ApiResponse<null>>(`/tasks/${id}`),
 
   complete: (id: number, payload: CompleteTaskPayload) => {
     const formData = new FormData()
     if (payload.note?.trim()) formData.append('note', payload.note.trim())
     if (payload.image) formData.append('image', payload.image)
     return apiClient.post<ApiResponse<TaskResponse>>(
-      `/api/tasks/${id}/complete`,
+      `/tasks/${id}/complete`,
       formData,
     )
   },
 
   sendReminder: (id: number) =>
-    apiClient.post<ApiResponse<null>>(`/api/tasks/${id}/remind`),
+    apiClient.post<ApiResponse<null>>(`/tasks/${id}/remind`),
 }

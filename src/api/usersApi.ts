@@ -8,16 +8,16 @@ import type {
 
 export const usersApi = {
   getActiveStaff: () =>
-    apiClient.get<ApiResponse<UserResponse[]>>('/api/users', {
+    apiClient.get<ApiResponse<UserResponse[]>>('/users', {
       params: { role: 'STAFF', active: true },
     }),
 
   getProfile: () =>
-    apiClient.get<ApiResponse<UserResponse>>('/api/users/me'),
+    apiClient.get<ApiResponse<UserResponse>>('/users/me'),
 
   updateProfile: (data: UpdateProfileRequest) =>
-    apiClient.put<ApiResponse<UserResponse>>('/api/users/me', data),
+    apiClient.put<ApiResponse<UserResponse>>('/users/me', data),
 
   changePassword: (data: ChangePasswordRequest) =>
-    apiClient.put<ApiResponse<null>>('/api/users/me/change-password', data),
+    apiClient.put<ApiResponse<null>>('/users/me/change-password', data),
 }
