@@ -33,6 +33,7 @@ function DashboardStats({ todos, pagination }: { todos: TaskResponse[]; paginati
         <div>
           <div className="stat-value">{stats.total}</div>
           <div className="stat-label">Tổng số task</div>
+          <div className="stat-subtext">Trang hiện tại: {todos.length} task</div>
         </div>
       </div>
       <div className="stat-card">
@@ -42,6 +43,7 @@ function DashboardStats({ todos, pagination }: { todos: TaskResponse[]; paginati
         <div>
           <div className="stat-value">{stats.pending}</div>
           <div className="stat-label">Chưa hoàn thành</div>
+          <div className="stat-subtext">{stats.pending} task ở trang này</div>
         </div>
       </div>
       <div className="stat-card">
@@ -51,6 +53,7 @@ function DashboardStats({ todos, pagination }: { todos: TaskResponse[]; paginati
         <div>
           <div className="stat-value">{stats.completed}</div>
           <div className="stat-label">Đã hoàn thành</div>
+          <div className="stat-subtext">{stats.completed} task ở trang này</div>
         </div>
       </div>
     </div>

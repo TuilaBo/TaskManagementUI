@@ -860,8 +860,15 @@ a:hover { color: var(--accent-hover); }
 
 .stat-label {
   font-size: 13px;
-  color: var(--text-muted);
+  color: var(--text-h);
   margin-top: 2px;
+  font-weight: 600;
+}
+
+.stat-subtext {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-top: 4px;
   font-weight: 500;
 }
 
